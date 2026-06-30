@@ -1,4 +1,4 @@
-# ⏳ Dynamic Hourglass Puzzle Engine
+# ⏳ Hourglass Puzzle Game
 
 An interactive puzzle engine built with **Python** and **Streamlit** for solving and playing hourglass timing puzzles.
 
@@ -62,7 +62,21 @@ Goals:
 ```
 
 ---
+#### Convergence Mode
 
+Manage N isolated groups of hourglasses (channels) simultaneously. All channels must maintain continuous sand flow and finish running at the exact same final timestamp.
+
+Example:
+
+```text
+Hourglasses:
+Channel A: 3m, 4m | Channel B: 5m, 7m
+
+Target:
+8 minutes
+```
+
+---
 ### 💡 Optimal Hint System
 
 Hints are not pre-recorded.
@@ -82,7 +96,7 @@ Features include:
 * Rank-based difficulty filtering
 * Random puzzle selection
 * Automatic level loading
-* Support for both standard and sequential puzzles
+* Support for both standard, sequential, and convergence puzzles
 
 ---
 
@@ -158,8 +172,13 @@ streamlit run app.py
 ```text
 .
 ├── app.py
+├── generate_ranked_puzzles.py
+├── generate_multitarget_puzzles.py
+├── generate_converg_2ch_puzzles.py
+├── generate_converg_3ch_puzzles.py
 ├── all_hourglass_puzzles.txt
 ├── multitarget_puzzles.txt
+├── convergence_puzzles.txt
 └── README.md
 ```
 
@@ -183,6 +202,7 @@ Players cannot advance arbitrary amounts of time—the simulation always moves t
 
 * ✅ Single-target puzzles
 * ✅ Sequential checkpoint puzzles
+* ✅ Convergence puzzles
 * ✅ Optimal BFS solver
 * ✅ Live hint generation
 * ✅ Undo system
